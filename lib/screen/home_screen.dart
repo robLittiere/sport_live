@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
           title: Image.asset('assets/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
           backgroundColor: const Color(0xffe13438),
+          centerTitle: true,
         ),
         body: PageView(
           onPageChanged: (index) {
