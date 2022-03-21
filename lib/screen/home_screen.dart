@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_live/screen/views/home_view.dart';
 import 'package:sport_live/screen/views/profil_view.dart';
 import 'package:sport_live/screen/views/score_view.dart';
+import 'package:sport_live/screen/views/article_item_view.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -27,7 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Image.asset('images/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
+          title: Image.asset('assets/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
+          centerTitle: true,
           backgroundColor: const Color(0xffe13438),
         ),
         body: PageView(
@@ -38,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: const <Widget>[
             HomeView(), 
             ScoreView(),
-            ProfilView(),
+            ArticleItemView(),
           ]
         ),
         bottomNavigationBar: BottomNavigationBar(
