@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(article.title),
-            Text(DateFormat()article.date.toString()),
+            Text(article.date.toString()),
             Text(article.autor),
             Text(article.resume)
           ],
