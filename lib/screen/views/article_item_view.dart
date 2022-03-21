@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sport_live/widget/article.dart';
+import 'package:sport_live/widget/full_article_item.dart';
 
 
 
