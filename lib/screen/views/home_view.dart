@@ -5,8 +5,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return const Center(
-       child: Text('Home page View')
-       );
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('#hashtag'),
+        );
+      },
+    );
   }
 }
