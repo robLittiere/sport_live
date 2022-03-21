@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../Article.dart';
+import 'package:intl/intl.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -29,16 +30,14 @@ class HomeView extends StatelessWidget {
 
   Widget buildArticleCard(context, index){
     final article = ArticleList[index];
-    return new Container(
-      child: Card(
-        child: Column(
-          children: <Widget>[
-            Text(article.title),
-            Text(article.date.toString()),
-            Text(article.autor),
-            Text(article.resume)
-          ],
-        ),
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Text(article.title),
+          Text(DateFormat('dd/MM/yyyy').format(article.date).toString()),
+          Text(article.autor),
+          Text(article.resume)
+        ],
       ),
     );
   }
