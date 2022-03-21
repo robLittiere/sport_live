@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_live/screen/views/home_view.dart';
 import 'package:sport_live/screen/views/profil_view.dart';
 import 'package:sport_live/screen/views/score_view.dart';
+import 'package:sport_live/screen/views/article_item_view.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  PageController _pageController = PageController(initialPage: 0); 
+  final PageController _pageController = PageController(initialPage: 0);
   int _currentIndex = 0;
   
   @override
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: const <Widget>[
             HomeView(), 
             ScoreView(),
-            ProfilView(),
+            ArticleItemView(),
           ]
         ),
         bottomNavigationBar: BottomNavigationBar(

@@ -7,7 +7,7 @@ class Navbar extends StatelessWidget {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-          title: Image.asset('images/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
+          title: Image.asset('assets/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
           backgroundColor: const Color(0xffe13438),
           leading: IconButton(
             icon: const Icon(Icons.chevron_left),
