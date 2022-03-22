@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sport_live/screen/home_screen.dart';
-import 'package:sport_live/article_preview.dart';
+import 'package:sport_live/widget/article_preview.dart';
 
 void main() {
   runApp(const App());
@@ -50,4 +50,4 @@ class MyArticleState extends State<MyArticle> {
 
     );
   }
-}*/
+}
