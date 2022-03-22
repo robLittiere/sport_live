@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  PageController _pageController = PageController(initialPage: 0); 
+  final PageController _pageController = PageController(initialPage: 0);
   int _currentIndex = 0;
   
   @override
@@ -29,8 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
           title: Image.asset('assets/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
-          centerTitle: true,
           backgroundColor: const Color(0xffe13438),
+          centerTitle: true,
         ),
         body: PageView(
           onPageChanged: (index) {
