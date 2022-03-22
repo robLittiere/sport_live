@@ -25,7 +25,7 @@ class _ScorePreviewState extends State<ScorePreview> {
         Container(
           padding: const EdgeInsets.only(left: 30),
           margin: const EdgeInsets.only(bottom: 40),
-          width: 150,
+          width: MediaQuery.of(context).size.width * 0.36,
           height: 50,
           color: Color(0xffe13438),
           child: Center(
@@ -40,7 +40,7 @@ class _ScorePreviewState extends State<ScorePreview> {
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 40),
-          width: 110,
+          width: MediaQuery.of(context).size.width * 0.28,
           height: 50,
           color: Colors.white,
           child: Center(
@@ -57,7 +57,7 @@ class _ScorePreviewState extends State<ScorePreview> {
         Container(
           padding: const EdgeInsets.only(left: 30),
           margin: const EdgeInsets.only(bottom: 40),
-          width: 150,
+          width: MediaQuery.of(context).size.width * 0.36,
           height: 50,
           color: Color(0xffe13438),
           child: Center(
