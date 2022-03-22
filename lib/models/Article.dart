@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 
 class Article {
   final String title;
-  final String autor;
+  final String author;
   final DateTime date;
   final String resume;
 
-  Article(this.title, this.autor, this.date, this.resume, );
+  Article(this.title, this.author, this.date, this.resume, );
 }
