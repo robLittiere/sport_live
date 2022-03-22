@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_live/models/Score.dart';
 import 'package:sport_live/widget/score_preview.dart';
