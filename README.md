@@ -1,4 +1,4 @@
-# sport_live
+# Sport Live
 
 A hybrid and progressive mobile app containing the latest news and sport articles.
 
