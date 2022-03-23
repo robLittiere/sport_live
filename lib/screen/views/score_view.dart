@@ -62,13 +62,75 @@ class ScoreView extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 60,
           color: Color(0xffe13438),
-          child: Row(
+          child: PopupMenuButton(
+            offset: Offset(50,50),
+            color: Colors.blue,
+            child: Row(
             children: const [
-              Text("Football",
+              Text("saucisse vertigineuse",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
-                ),),
+                  ),
+                ),
+              ],
+            ),
+              itemBuilder: (context) => [
+                 PopupMenuItem(
+                   child: Row(
+                    children: const [
+                      Text("Football",
+                      style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                        ),),
+                      ],
+                    ),
+                  ),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Text("Rugby",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Text("Tennis",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Text("Hockey",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                    ],
+                  ),
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Text("Basket d'Alpha",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),
@@ -76,9 +138,8 @@ class ScoreView extends StatelessWidget {
     );
   }
 
-  Widget buildScoreCard(context, index){
+  Widget buildScoreCard(context, index) {
     final score = ScoreList[index];
     return ScorePreview(score: score);
   }
 }
-
