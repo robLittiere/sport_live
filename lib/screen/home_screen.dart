@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             HomeView(),
             ScoreView(),
-            ArticleItemView(),
+            ProfilView(),
           ]
         ),
         bottomNavigationBar: BottomNavigationBar(

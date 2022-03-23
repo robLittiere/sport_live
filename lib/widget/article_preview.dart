@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sport_live/screen/views/article_item_view.dart';
 import '../models/Article.dart';
 
 class ArticlePreview extends StatefulWidget {
@@ -26,72 +27,81 @@ class _ArticlePreviewState extends State<ArticlePreview> {
       content = content.substring(0, 150) + '...';
     }
 
-    return SafeArea(
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(right: 15, left: 15),
-              height: 312,
-              child: Column(
-                children:  [
-                  Container(
-                    height: 146,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(articleImage!),
-                      ),
-                    ),
-                  ),
-                  Container(
-                      margin: const EdgeInsets.only(top: 8),
-                      width: double.infinity,
-                      child: Text(title!,
-                        textAlign: TextAlign.start,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18))
-                  ),
-                  Container(
-                      margin: const EdgeInsets.only(top: 2),
-                      width: double.infinity,
-                      child: Text(date!,
-                        textAlign: TextAlign.start,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey),)
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 2, bottom: 2),
-                    width: double.infinity,
-                    child: Text(content!,
-                      textAlign: TextAlign.start,
-                      style: const TextStyle(fontSize: 12, ),
-                    ),
-                  ),
-                  Container(
-                    child: Row(
-                      children: const [
-                        Text("Football",
-                            style: TextStyle(fontSize: 12, backgroundColor: Colors.grey)
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (BuildContext context) => ArticleItemView(article: widget.article,))
+        );
+      },
+      child: (
+          SafeArea(
+            child: Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(right: 15, left: 15),
+                  height: 312,
+                  child: Column(
+                    children:  [
+                      Container(
+                        height: 146,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(articleImage!),
+                          ),
                         ),
-                        Text("Actu",
-                          style: TextStyle(fontSize: 12, backgroundColor: Colors.grey),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      ),
+                      Container(
+                          margin: const EdgeInsets.only(top: 8),
+                          width: double.infinity,
+                          child: Text(title!,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18))
+                      ),
+                      Container(
+                          margin: const EdgeInsets.only(top: 2),
+                          width: double.infinity,
+                          child: Text(date!,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey),)
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 2, bottom: 2),
+                        width: double.infinity,
+                        child: Text(content!,
+                          textAlign: TextAlign.start,
+                          style: const TextStyle(fontSize: 12, ),
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: const [
+                            Text("Football",
+                                style: TextStyle(fontSize: 12, backgroundColor: Colors.grey)
+                            ),
+                            Text("Actu",
+                              style: TextStyle(fontSize: 12, backgroundColor: Colors.grey),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                const Divider(
+                  height: 1,
+                  thickness: 1,
+                  indent: 15,
+                  endIndent: 15,
+                  color: Color(0xFFD8D8D8),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                )
+              ],
             ),
-            const Divider(
-              height: 1,
-              thickness: 1,
-              indent: 15,
-              endIndent: 15,
-              color: Color(0xFFD8D8D8),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 30),
-            )
-          ],
-        ),
+          )
+      ),
     );
   }
 }

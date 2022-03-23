@@ -4,11 +4,12 @@ class Article {
   String? title;
   String? author;
   String? resume;
+  String? articleContent;
   String? imageUrl;
   String? articleLink;
   String? date;
 
-  Article(this.title, this.author, this.date, this.resume, this.imageUrl, this.articleLink );
+  Article(this.title, this.author, this.date, this.resume, this.imageUrl, this.articleLink, this.articleContent );
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -18,6 +19,7 @@ class Article {
       json['description'],
       json['urlToImage'],
       json['url'],
+      json['content']
     );
   }
 
