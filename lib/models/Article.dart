@@ -1,10 +1,28 @@
 import 'package:flutter/cupertino.dart';
 
 class Article {
-  final String title;
-  final String author;
-  final DateTime date;
-  final String resume;
+  String? title;
+  String? author;
+  String? resume;
+  String? imageUrl;
+  String? articleLink;
+  String? date;
 
-  Article(this.title, this.author, this.date, this.resume, );
+  Article(this.title, this.author, this.date, this.resume, this.imageUrl, this.articleLink );
+
+  factory Article.fromJson(Map<String, dynamic> json) {
+    return Article(
+      json['title'],
+      json['author'],
+      json['publishedAt'],
+      json['description'],
+      json['urlToImage'],
+      json['url'],
+    );
+  }
+
+  static cleanArticleTitle(String articleTitle){
+    var title  = articleTitle.split("-")[0];
+    return title;
+  }
 }

@@ -1,6 +1,6 @@
 # sport_live
 
-An mobile app containing Sport news and articles
+A hybrid and progressive mobile app containing the latest news and sport articles.
 
 ## Getting Started
 

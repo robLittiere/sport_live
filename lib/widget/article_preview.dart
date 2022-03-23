@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import '../models/Article.dart';
 
 class ArticlePreview extends StatefulWidget {
@@ -14,14 +13,17 @@ class ArticlePreview extends StatefulWidget {
 class _ArticlePreviewState extends State<ArticlePreview> {
   @override
   Widget build(BuildContext context) {
-    String content = widget.article.resume;
-    String author = widget.article.author;
-    var date = DateFormat('dd/MM/yyyy').format(widget.article.date).toString();
-    String title = widget.article.title;
-    String articleDescription = '';
+    String? content = widget.article.resume;
+    String? author = widget.article.author;
+    var date = widget.article.date;
+    String? title = widget.article.title;
+    String? articleDescription = widget.article.resume;
+    String? articleImage = widget.article.imageUrl;
+    String? articleLink = widget.article.articleLink;
 
-    if(content.length > 185){
-      articleDescription = content.substring(0, 185) + '...';
+
+    if(content != null && content.length > 150){
+      content = content.substring(0, 150) + '...';
     }
 
     return SafeArea(
@@ -34,31 +36,31 @@ class _ArticlePreviewState extends State<ArticlePreview> {
                 children:  [
                   Container(
                     height: 146,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage("https://picsum.photos/1920/1080"),
+                        image: NetworkImage(articleImage!),
                       ),
                     ),
                   ),
                   Container(
                       margin: const EdgeInsets.only(top: 8),
                       width: double.infinity,
-                      child: Text(title,
+                      child: Text(title!,
                         textAlign: TextAlign.start,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),)
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18))
                   ),
                   Container(
                       margin: const EdgeInsets.only(top: 2),
                       width: double.infinity,
-                      child: Text(date,
+                      child: Text(date!,
                         textAlign: TextAlign.start,
                         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey),)
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 2, bottom: 2),
                     width: double.infinity,
-                    child: Text(articleDescription,
+                    child: Text(content!,
                       textAlign: TextAlign.start,
                       style: const TextStyle(fontSize: 12, ),
                     ),
@@ -108,4 +110,3 @@ class _MyImageState extends State<MyImage> {
     return Container();
   }
 }
-
