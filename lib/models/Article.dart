@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
+class ArticleModel{
 
-class Article {
-  final String title;
-  final String autor;
-  final DateTime date;
-  final String resume;
+  String title;
+  String author;
+  String description;
+  String urlToImage;
+  String publishedAt;
+  String content;
 
-  Article(this.title, this.autor, this.date, this.resume, );
+  ArticleModel({required this.title, required this.author, required this.description, required this.urlToImage, required this.publishedAt, required this.content});
 }

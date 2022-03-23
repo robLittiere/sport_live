@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sport_live/screen/views/home_view.dart';
-import 'package:sport_live/screen/views/profil_view.dart';
 import 'package:sport_live/screen/views/score_view.dart';
 import 'package:sport_live/screen/views/article_item_view.dart';
 
@@ -36,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           controller: _pageController,
           children: const <Widget>[
-            HomeView(), 
+            HomeView(),
             ScoreView(),
             ArticleItemView(),
           ]
