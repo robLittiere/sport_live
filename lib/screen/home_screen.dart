@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
           title: Image.asset('assets/sport_live.png', width: 72, height: 49, fit: BoxFit.cover),
@@ -37,10 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() => _currentIndex = index);
           },
           controller: _pageController,
-          children: const <Widget>[
-            HomeView(), 
+          children: <Widget>[
+            HomeView(),
             ScoreView(),
-            ArticleItemView(),
+            ProfilView(),
           ]
         ),
         bottomNavigationBar: BottomNavigationBar(
