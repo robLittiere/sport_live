@@ -24,6 +24,7 @@ class MyArticle extends StatefulWidget {
 
   final String title;
 
+  @override
   State<MyArticle> createState() => MyArticleState();
 }
 
