@@ -13,9 +13,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    stdout.writeln('print me');
-    stdout.writeln('print me');
-    stdout.writeln('Coucou Rob');
 
     return MaterialApp(
       title: 'SportLive',
