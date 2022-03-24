@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_live/models/Score.dart';
+import 'package:sport_live/api_manager.dart';
 import 'package:sport_live/widget/score_preview.dart';
+import 'package:sport_live/models/SoccerModel.dart';
 
 // Menu item necessary to switch sport category name.
 enum MenuItem {
@@ -30,38 +31,36 @@ class ChangeTextState extends State {
 }
 
 
-class ScoreView extends StatelessWidget {
+class ScoreView extends StatefulWidget {
   const ScoreView({Key? key}) : super(key: key);
 
-  static final List<Score> ScoreList = [
-    Score("Paris-SG", "2-0", "Marseille"),
-    Score("Lens", "3-2", "Strasbourg"),
-    Score("Milan AC", "1-1", "Udinese"),
-    Score("Fribourg", "0-2", "RB Leipzig"),
-    Score("Séville", "1-3", "Barcelone"),
-    Score("Liverpool", "5-0", "Man.Utd"),
-    Score("Bordeaux", "1-2", "Lorient"),
-    Score("Chelsea", "3-0", "West Ham"),
-    Score("Real Madrid", "2-2", "Valence"),
-  ];
 
   @override
+  _ScoreViewState createState() => _ScoreViewState();
+
+/*@override
   Widget build(BuildContext context) {
     return Column(
       children: [
         HeaderPage(context),
         Expanded(
-            child: ScoreListView(context))
+            child:
+            MatchList(context)
+        ),
       ],
     );
   }
 
-  Widget ScoreListView(BuildContext context) {
-    return ListView.builder(
-        padding: const EdgeInsets.only(top: 30),
-        itemCount: ScoreList.length,
-        itemBuilder: (BuildContext context, int index) =>
-            buildScoreCard(context, index)
+  Widget MatchList(BuildContext context) {
+    List allmatches = [];
+    return Column(
+      children: [
+        ListView.builder(
+          itemCount: allmatches.length,
+            itemBuilder: (context, index) {
+              return matchTile(allmatches[index]);
+            })
+      ],
     );
   }
 
@@ -86,7 +85,10 @@ class ScoreView extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(left: 30),
           margin: const EdgeInsets.only(top: 20, right: 120),
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
           height: 60,
           color: Color(0xffe13438),
           child: PopupMenuButton<MenuItem>(
@@ -178,8 +180,42 @@ class ScoreView extends StatelessWidget {
     );
   }
 
+<<<<<<< Updated upstream
   Widget buildScoreCard(context, index) {
     final score = ScoreList[index];
     return ScorePreview(score: score);
   }
 }
+=======
+ */
+
+}
+class _ScoreViewState extends State<ScoreView> {
+  late Future<List<SoccerMatch>> futureListSoccerMatch;
+
+  @override
+  void initState() {
+    super.initState();
+    futureListSoccerMatch = SoccerApi().getAllMatches();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder <List<SoccerMatch>>(
+      future: futureListSoccerMatch,
+      builder: (context, snapshot){
+        if(snapshot.hasData){
+          print(snapshot.data!);
+        }
+        else if (snapshot.hasError){
+          return Text('${snapshot.error}');
+        }
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+}
+

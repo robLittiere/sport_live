@@ -1,42 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:sport_live/models/SoccerModel.dart';
 
-import '../models/Score.dart';
+Widget matchTile(SoccerMatch match) {
 
-class ScorePreview extends StatefulWidget {
-  final Score score;
-  const ScorePreview({Key? key, required this.score, }) : super(key: key);
+  var homeGoal = match.goal.home;
+  var awayGoal = match.goal.away;
+  if(homeGoal == null) homeGoal = 0;
+  if(awayGoal == null) awayGoal = 0;
 
-  @override
-  _ScorePreviewState createState() => _ScorePreviewState();
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 12),
+    child: Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+
+          height: 50,
+          color: const Color(0xffe13438),
+          child: Text(
+              match.home.name,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16
+              ),
+            ),
+        ),
+        Image.network(
+          match.home.logoUrl,
+          width: 36,
+        ),
+        Container(
+          height: 50,
+          color: Colors.white,
+          child: Text(
+            "${homeGoal} - ${awayGoal}",
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.black87,
+              fontSize: 16,
+            ),
+          ),
+        ),
+        Image.network(
+          match.away.logoUrl,
+          width: 36,
+        ),
+        Container(
+          height: 50,
+          color: Color(0xffe13438),
+            child: Text(
+              match.away.name,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            )
+        ),
+      ],
+    ),
+  );
 }
 
-class _ScorePreviewState extends State<ScorePreview> {
-  @override
-  Widget build(BuildContext context) {
-    String firstTeam = widget.score.firstTeam;
-    String scoreBoard = widget.score.scoreBoard;
-    String secondTeam = widget.score.secondTeam;
 
+
+
+
+
+
+
+/*
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: const EdgeInsets.only(left: 30),
-          margin: const EdgeInsets.only(bottom: 40),
-          width: MediaQuery.of(context).size.width * 0.36,
-          height: 50,
-          color: Color(0xffe13438),
-          child: Center(
-            child: Text(
-              firstTeam,
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
+            padding: const EdgeInsets.only(left: 30),
+            margin: const EdgeInsets.only(bottom: 40),
+            width: MediaQuery.of(context).size.width * 0.36,
+            height: 50,
+            color: Color(0xffe13438),
+            child: Center(
+              child: Text(
+                firstTeam,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          )
+            )
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 40),
@@ -47,7 +101,7 @@ class _ScorePreviewState extends State<ScorePreview> {
             child: Text(
               scoreBoard,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
                 color: Colors.black87,
               ),
@@ -64,7 +118,7 @@ class _ScorePreviewState extends State<ScorePreview> {
             child: Text(
               secondTeam,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 color: Colors.white,
               ),
@@ -74,57 +128,4 @@ class _ScorePreviewState extends State<ScorePreview> {
       ],
     );
   }
-}
-
-/*
-Row(
-mainAxisSize: MainAxisSize.max,
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Container(
-padding: const EdgeInsets.only(left: 30),
-margin: const EdgeInsets.only(bottom: 40),
-width: 150,
-height: 50,
-color: Color(0xffe13438),
-child: Row(
-children: [
-Text(firstTeam,
-style: TextStyle(
-fontSize: 20,
-color: Colors.white,
-),)
-],
-),
-),
-Container(
-margin: const EdgeInsets.only(bottom: 40),
-width: 100,
-height: 50,
-color: Colors.white,
-child: Center(
-child: Text(scoreBoard,
-textAlign: TextAlign.center,
-style: TextStyle(
-fontSize: 25,
-color: Colors.black87,
-),
-),
-),
-),
-Container(
-padding: const EdgeInsets.only(left: 30),
-margin: const EdgeInsets.only(bottom: 40),
-width: 150,
-height: 50,
-color: Color(0xffe13438),
-child: Row(
-children: [
-Text(secondTeam,
-style: TextStyle(
-fontSize: 20,
-color: Colors.white,
-),)
-],
-),
 */
