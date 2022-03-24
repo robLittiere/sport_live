@@ -3,6 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:sport_live/models/Score.dart';
 import 'package:sport_live/widget/score_preview.dart';
 
+// Menu item necessary to switch sport category name.
+enum MenuItem {
+  item1,
+  item2,
+  item3,
+  item4,
+  item5,
+}
+
+class ChangeText extends StatefulWidget {
+
+  ChangeTextState createState() => ChangeTextState();
+
+}
+
+class ChangeTextState extends State {
+
+  String textHolder = 'Old Text';
+
+  changeText() {
+    setState(() {
+      textHolder = 'New Text';
+    });
+  }
+}
+
 
 class ScoreView extends StatelessWidget {
   const ScoreView({Key? key}) : super(key: key);
@@ -39,6 +65,7 @@ class ScoreView extends StatelessWidget {
     );
   }
 
+
   @override
   Widget HeaderPage(BuildContext context) {
     return Column(
@@ -62,12 +89,20 @@ class ScoreView extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: 60,
           color: Color(0xffe13438),
-          child: PopupMenuButton(
-            offset: Offset(50,50),
-            color: Colors.blue,
+          child: PopupMenuButton<MenuItem>(
+            onSelected: (value){
+              if (value == MenuItem.item1){
+              } else if (value == MenuItem.item2){
+              } else if (value == MenuItem.item3){
+              } else if (value == MenuItem.item4){
+              } else if (value == MenuItem.item5){
+              }
+            },
+            offset: Offset(42,60),
+            color: Color(0xffe13438),
             child: Row(
             children: const [
-              Text("saucisse vertigineuse",
+              Text("saucisse",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
@@ -75,8 +110,9 @@ class ScoreView extends StatelessWidget {
                 ),
               ],
             ),
-              itemBuilder: (context) => [
+                  itemBuilder: (context) => [
                  PopupMenuItem(
+                   value: MenuItem.item1,
                    child: Row(
                     children: const [
                       Text("Football",
@@ -88,6 +124,7 @@ class ScoreView extends StatelessWidget {
                     ),
                   ),
                 PopupMenuItem(
+                  value: MenuItem.item2,
                   child: Row(
                     children: const [
                       Text("Rugby",
@@ -99,9 +136,10 @@ class ScoreView extends StatelessWidget {
                   ),
                 ),
                 PopupMenuItem(
+                  value: MenuItem.item3,
                   child: Row(
                     children: const [
-                      Text("Tennis",
+                      Text("Basketball",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -110,6 +148,7 @@ class ScoreView extends StatelessWidget {
                   ),
                 ),
                 PopupMenuItem(
+                  value: MenuItem.item4,
                   child: Row(
                     children: const [
                       Text("Hockey",
@@ -121,9 +160,10 @@ class ScoreView extends StatelessWidget {
                   ),
                 ),
                 PopupMenuItem(
+                  value: MenuItem.item5,
                   child: Row(
                     children: const [
-                      Text("Basket d'Alpha",
+                      Text("Handball",
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
