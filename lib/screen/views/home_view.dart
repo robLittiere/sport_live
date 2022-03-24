@@ -59,7 +59,6 @@ Future<List<Article>> fetchArticles() async {
     var data = jsonDecode(response.body)['articles'];
     List<Article> articleList = [];
     for(var i = 0; i < data.length; i++){
-      stdout.writeln('Salut par ici');
       if(data[i]['author'] != null){
         // Specific to NewsAI
         // Clean article
@@ -68,7 +67,6 @@ Future<List<Article>> fetchArticles() async {
         articleList.add(Article.fromJson(data[i]));
       }
     }
-    stdout.writeln(data[0]);
 
     return articleList;
   } else {

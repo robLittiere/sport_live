@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../models/Article.dart';
 
@@ -9,7 +10,6 @@ class ArticleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
       child : Column(
         mainAxisSize : MainAxisSize.max,
@@ -44,13 +44,18 @@ class ArticleView extends StatelessWidget {
           ),
           descriptionSection(article),
           contentText(article),
-          const Text('Lire la suite...',
-            style: TextStyle(
-              decoration: TextDecoration.underline,
-              color: Colors.grey
+          GestureDetector(
+            onTap: () {
+              _redirectToUrl(article.articleLink);
+            },
+            child : const Text('Lire la suite...',
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: Colors.grey
+              ),
             ),
           ),
-          authorSection,
+          authorSection(article),
 
 
         ],
@@ -99,38 +104,50 @@ Widget contentText(Article article) {
   );
 }
 
-Widget forwardSection = Container(
-  child: Row(
-    mainAxisSize : MainAxisSize.max,
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Column(
-        children: const [
-          Text("Continuer la lecture",
-            style: TextStyle(
-                color: Colors.grey
-            ),
-          ),
-        ],
-      ),
-      Column(
+Widget forwardSection(Article article) {
+  return Container(
+    child: Row(
+      mainAxisSize : MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
           children: const [
-            Text("Robin Littiere - L'Equipe",
+            Text("Continuer la lecture",
               style: TextStyle(
                   color: Colors.grey
               ),
             ),
-          ]
-      )
-    ],
-  ),
-);
+          ],
+        ),
+        Column(
+            children: [
+              Text(article.author!,
+                style: const TextStyle(
+                    color: Colors.grey
+                ),
+              ),
+            ]
+        )
+      ],
+    ),
+  );
+}
 
-Widget authorSection = Container(
-  padding: const EdgeInsets.only(top: 10, bottom: 15),
-  child: const Align(
-    alignment : Alignment.centerRight,
-    child: Text("Robin Littiere - L'équipe"),
-  ),
-);
+Widget authorSection(Article article) {
+  return Container(
+    padding: const EdgeInsets.only(top: 10, bottom: 15),
+    child: Align(
+      alignment : Alignment.centerRight,
+      child: Text("${article.author} - ${article.source}"),
+    ),
+  );
+}
+
+_redirectToUrl(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw "Could not launch $url";
+  }
+}
 

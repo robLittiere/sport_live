@@ -16,7 +16,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
   Widget build(BuildContext context) {
     String? content = widget.article.resume;
     String? author = widget.article.author;
-    var date = widget.article.date;
+    widget.article.formatDate();
     String? title = widget.article.title;
     String? articleDescription = widget.article.resume;
     String? articleImage = widget.article.imageUrl;
@@ -61,7 +61,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
                       Container(
                           margin: const EdgeInsets.only(top: 2),
                           width: double.infinity,
-                          child: Text(date!,
+                          child: Text(widget.article.date!,
                             textAlign: TextAlign.start,
                             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.grey),)
                       ),
