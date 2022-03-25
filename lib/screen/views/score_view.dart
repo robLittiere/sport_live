@@ -61,7 +61,7 @@ class _ScoreViewState extends State<ScoreView> {
 
 buildMatchTile(context, index, matchList){
   final match = matchList[index];
-  return matchTile(match);
+  return matchTile(match, context);
 
 }
 
