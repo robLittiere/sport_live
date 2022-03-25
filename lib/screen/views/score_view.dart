@@ -4,6 +4,9 @@ import 'package:sport_live/api_manager.dart';
 import 'package:sport_live/widget/score_preview.dart';
 import 'package:sport_live/models/SoccerModel.dart';
 
+import 'PageCategoriesScore/FootbalPage.dart';
+
+
 // Menu item necessary to switch sport category name.
 enum MenuItem {
   item1,
@@ -12,8 +15,6 @@ enum MenuItem {
   item4,
   item5,
 }
-
-
 
 class ScoreView extends StatefulWidget {
   const ScoreView({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class ScoreView extends StatefulWidget {
 }
 class _ScoreViewState extends State<ScoreView> {
   late Future<List<SoccerMatch>> futureListSoccerMatch;
+
 
   @override
   void initState() {
@@ -77,13 +79,13 @@ Widget headerPage(BuildContext context) {
   return Column(
     children: [
       Container(
-        margin: const EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 10),
         child: const Center(
           child: Text(
             "Résultats",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: 30,
+                fontSize: 15,
                 color: Colors.black87
             ),
           ),
@@ -91,26 +93,27 @@ Widget headerPage(BuildContext context) {
       ),
       Container(
         padding: const EdgeInsets.only(left: 30),
-        margin: const EdgeInsets.only(top: 20, right: 120),
+        margin: const EdgeInsets.only(top: 10, right: 120),
         width: MediaQuery.of(context).size.width,
-        height: 60,
+        height: 30,
         color: Color(0xffe13438),
         child: PopupMenuButton<MenuItem>(
           onSelected: (value){
             if (value == MenuItem.item1){
+              print('item 1');
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const FootballPage()));
             } else if (value == MenuItem.item2){
-            } else if (value == MenuItem.item3){
-            } else if (value == MenuItem.item4){
-            } else if (value == MenuItem.item5){
+              print('item 2' );
+
             }
           },
-          offset: Offset(42,60),
+          offset: Offset(42,30),
           color: Color(0xffe13438),
           child: Row(
             children: const [
-              Text("saucisse",
+              Text("categories",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Colors.white,
                 ),
               ),
@@ -141,46 +144,11 @@ Widget headerPage(BuildContext context) {
                 ],
               ),
             ),
-            PopupMenuItem(
-              value: MenuItem.item3,
-              child: Row(
-                children: const [
-                  Text("Basketball",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),),
-                ],
-              ),
-            ),
-            PopupMenuItem(
-              value: MenuItem.item4,
-              child: Row(
-                children: const [
-                  Text("Hockey",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),),
-                ],
-              ),
-            ),
-            PopupMenuItem(
-              value: MenuItem.item5,
-              child: Row(
-                children: const [
-                  Text("Handball",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),),
-                ],
-              ),
-            ),
           ],
         ),
       ),
     ],
   );
 }
+
 
