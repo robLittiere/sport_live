@@ -5,8 +5,8 @@ Widget matchTile(SoccerMatch match) {
 
   var homeGoal = match.goal.home;
   var awayGoal = match.goal.away;
-  if(homeGoal == null) homeGoal = 0;
-  if(awayGoal == null) awayGoal = 0;
+  homeGoal ??= 0;
+  awayGoal ??= 0;
 
   return Container(
     margin: const EdgeInsets.symmetric(vertical: 12),
@@ -19,7 +19,7 @@ Widget matchTile(SoccerMatch match) {
           height: 50,
           color: const Color(0xffe13438),
           child: Text(
-              match.home.name,
+              match.home.name!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                   color: Colors.white,
@@ -28,14 +28,14 @@ Widget matchTile(SoccerMatch match) {
             ),
         ),
         Image.network(
-          match.home.logoUrl,
+          match.home.logoUrl!,
           width: 36,
         ),
         Container(
           height: 50,
           color: Colors.white,
           child: Text(
-            "${homeGoal} - ${awayGoal}",
+            "${homeGoal} - $awayGoal",
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: Colors.black87,
@@ -44,14 +44,14 @@ Widget matchTile(SoccerMatch match) {
           ),
         ),
         Image.network(
-          match.away.logoUrl,
+          match.away.logoUrl!,
           width: 36,
         ),
         Container(
           height: 50,
-          color: Color(0xffe13438),
+          color: const Color(0xffe13438),
             child: Text(
-              match.away.name,
+              match.away.name!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.white,
