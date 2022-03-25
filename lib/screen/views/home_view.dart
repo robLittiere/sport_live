@@ -52,7 +52,7 @@ class _HomeViewState extends State<HomeView> {
 
 
 Future<List<Article>> fetchArticles() async {
-  final response = await http.get(Uri.parse('https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=6b5555e502f94da399509bd818d0898f'));
+  final response = await http.get(Uri.parse('https://newsapi.org/v2/top-headlines?country=fr&category=sports&page=1&apiKey=6b5555e502f94da399509bd818d0898f'));
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
