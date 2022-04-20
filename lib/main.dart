@@ -19,6 +19,7 @@ class App extends StatelessWidget {
       theme: ThemeData(fontFamily: 'DMSans'),
       debugShowCheckedModeBanner: false,
       home: const HomeScreen()
+
     );
   }
 }

@@ -72,7 +72,6 @@ class _ScoreViewState extends State<ScoreView> {
 buildMatchTile(context, index, matchList){
   final match = matchList[index];
   return matchTile(match);
-
 }
 
 Widget headerPage(BuildContext context) {
