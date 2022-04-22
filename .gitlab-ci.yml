@@ -26,6 +26,6 @@ unit_test:
 
 linter:
   stage: linter
-
+  allow_failure: true
   script:
     - flutter analyze
