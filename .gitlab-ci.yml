@@ -2,7 +2,7 @@ image: cirrusci/flutter:stable
 
 stages:
   - build
-  - analyze
+  - linter
   - test
 
 before_script:
@@ -24,8 +24,8 @@ unit_test:
     - flutter test test/*
   
 
-analyze:
+linter:
   stage: analyze
 
   script:
-    - echo job excluded
+    - dart analyze .
