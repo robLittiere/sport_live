@@ -1,26 +1,31 @@
-image: openjdk:8-jdk
+image: cirrusci/flutter:stable
 
 stages:
-  - test
   - build
+  - analyze
+  - test
 
-build:apk:
+before_script:
+  - flutter pub get
+  - flutter clean
+
+build:
   stage: build
+
   script:
     - flutter build apk
-  artifacts:
-    paths:
-      - build/app/outputs/apk
-
-build:bundle:
-  stage: build
-  script:
     - flutter build appbundle
-  artifacts:
-    paths:
-      - build/app/outputs/bundle
 
-test:flutter:
+
+unit_test:
   stage: test
+
   script:
-    - flutter test
+    - flutter test test/*
+  
+
+analyze:
+  stage: analyze
+
+  script:
+    - echo job excluded
