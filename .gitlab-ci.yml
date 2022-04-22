@@ -25,7 +25,7 @@ unit_test:
   
 
 linter:
-  stage: analyze
+  stage: linter
 
   script:
     - dart analyze .
