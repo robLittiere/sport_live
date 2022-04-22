@@ -4,6 +4,7 @@ stages:
   - build
   - linter
   - test
+  
 
 before_script:
   - flutter pub get
