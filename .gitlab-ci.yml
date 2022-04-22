@@ -28,4 +28,4 @@ linter:
   stage: linter
 
   script:
-    - dart analyze .
+    - flutter analyze
