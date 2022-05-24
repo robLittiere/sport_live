@@ -25,7 +25,7 @@ class ScoreView extends StatefulWidget {
 
 }
 class _ScoreViewState extends State<ScoreView> {
-  late Future<List<SoccerMatch>> futureListSoccerMatch;
+  late Future<List<dynamic>> futureListSoccerMatch;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _ScoreViewState extends State<ScoreView> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder <List<SoccerMatch>>(
+    return FutureBuilder <List<dynamic>>(
       future: futureListSoccerMatch,
       builder: (context, snapshot){
         if(snapshot.hasData){

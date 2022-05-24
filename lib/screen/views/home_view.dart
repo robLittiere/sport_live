@@ -47,6 +47,7 @@ class _HomeViewState extends State<HomeView> {
 
   Widget buildArticleCard(context, index, articleList){
     final article = articleList[index];
+    print(article.title);
     return ArticlePreview(article: article);
   }}
 
@@ -59,11 +60,12 @@ Future<List<Article>> fetchArticles() async {
     var data = jsonDecode(response.body)['articles'];
     List<Article> articleList = [];
     for(var i = 0; i < data.length; i++){
-      if(data[i]['author'] != null){
+      if(data[i]['author'] != null && data[i]['urlToImage'] != null){
         // Specific to NewsAI
         // Clean article
         String articleTitle = Article.cleanArticleTitle(data[i]['title']);
         data[i]['title'] = articleTitle;
+        print(data[i]['title']);
         articleList.add(Article.fromJson(data[i]));
       }
     }
