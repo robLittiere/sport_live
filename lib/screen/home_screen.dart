@@ -64,10 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.grading_outlined),
               label: 'Score',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
-              label: 'Profil',
-            )
           ]
         ),
     );
