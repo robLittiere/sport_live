@@ -7,7 +7,7 @@ import 'package:sport_live/models/SoccerModel.dart';
 
 class SoccerApi {
 
-  static var apiSoccerUrl = "https://v3.football.api-sports.io/fixtures?season=2021&league=39";
+  static var apiSoccerUrl = "https://v3.football.api-sports.io/fixtures?season=2021&league=61";
 
   static const headers = {
     'x-rapidapi-key': "f2cc166b6b3aedeaefbdd22ee6d90412"
