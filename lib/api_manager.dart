@@ -7,7 +7,7 @@ import 'package:sport_live/models/SoccerModel.dart';
 
 class SoccerApi {
 
-  static var apiSoccerUrl = "https://v3.football.api-sports.io/fixtures?season=2021&league=61";
+  static var apiSoccerUrl = "https://v3.football.api-sports.io/fixtures?season=2021&league=61&from=2022-03-17&to=2022-03-24";
 
   static const headers = {
     'x-rapidapi-key': "f2cc166b6b3aedeaefbdd22ee6d90412"
@@ -23,7 +23,7 @@ class SoccerApi {
     var beforeDateFormated = DateFormat('yyyy-MM-dd').format(beforeDate);
 
     // Add date to string
-    apiSoccerUrl += "&from=" + beforeDateFormated + "&to=" + todayFormated;
+    //apiSoccerUrl += "&from=" + beforeDateFormated + "&to=" + todayFormated;
 
 
     final res = await http.get(Uri.parse(apiSoccerUrl), headers: headers);
